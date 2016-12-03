@@ -5,7 +5,7 @@ import os
 import sys
 import json
 
-def make_soup(url):
+def make_soup(url): # pragma: no cover
     '''
     makes soup, that is basically parsing the html document
     '''
@@ -13,7 +13,7 @@ def make_soup(url):
     html = response.content
     return BeautifulSoup(html, "html.parser")
 
-def make_json(url):
+def make_json(url): # pragma: no cover
     """
     makes a dictionary out of a json file. If API like: URL/.json
     """
@@ -43,7 +43,7 @@ def get_unsplash_image_links(url, no_of_images):
     image_links = []
     if not a_tags:
         print ('No matching image found')
-        return
+        return []
 
     for a_tag in a_tags:
         image_url = a_tag['href']
@@ -100,7 +100,7 @@ def get_image_links(url, count):
     return image_links
 
 
-def download_store_images(full_path, image_link):
+def download_store_images(full_path, image_link): # pragma no-cover
     try:
         urlretrieve(image_link,
                     full_path,
